@@ -1,0 +1,21 @@
+<h2>Elige una opción</h2>
+
+@for (pokemon of pokemons(); track $index) {
+  <div class="flex justify-center items-center">
+    <p>Id: {{ pokemon.id }}</p>
+  </div>
+  <div class="flex justify-center items-center">
+    <p>Nombre: {{ pokemon.name }}</p>
+  </div>
+  <div class="flex justify-center items-center">
+    <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name">
+  </div>
+  @for (type of pokemon.types; track $index) {
+    <div class="flex justify-center items-center">
+      <p>Tipo: {{ type?.type?.name }}</p>
+    </div>
+  }
+  <div class="flex justify-center items-center">
+    <audio [src]="pokemon.cries.latest" controls></audio>
+  </div>
+}
