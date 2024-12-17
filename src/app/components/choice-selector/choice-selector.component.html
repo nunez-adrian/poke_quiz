@@ -1,21 +1,31 @@
-<h2>Elige una opción</h2>
+<h4 class="text-center">Choose wisely</h4>
+<audio [src]="pokemon()?.cries?.latest" controls></audio>
 
-@for (pokemon of pokemons(); track $index) {
-  <div class="flex justify-center items-center">
-    <p>Id: {{ pokemon.id }}</p>
-  </div>
-  <div class="flex justify-center items-center">
-    <p>Nombre: {{ pokemon.name }}</p>
-  </div>
-  <div class="flex justify-center items-center">
-    <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name">
-  </div>
-  @for (type of pokemon.types; track $index) {
-    <div class="flex justify-center items-center">
-      <p>Tipo: {{ type?.type?.name }}</p>
+<fieldset class="checkbox-group">
+  @for (pokemon of pokemons(); track $index) {
+    <div class="checkbox">
+      <label class="checkbox-wrapper">
+        <input 
+          type="checkbox" 
+          class="checkbox-input" 
+          [checked]="selectedPokemon === pokemon.id"
+          (change)="onSelectPokemon(pokemon.id)" />
+        <span class="checkbox-tile">
+          <span class="checkbox-icon">
+            <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name">
+          </span>
+          <span class="checkbox-label">{{ pokemon.name }}</span>
+        </span>
+      </label>
     </div>
   }
-  <div class="flex justify-center items-center">
-    <audio [src]="pokemon.cries.latest" controls></audio>
-  </div>
-}
+</fieldset>
+
+<button mat-fab extended (click)="checkResult()">
+  <mat-icon>arrow_forward_ios</mat-icon>
+  Comprobar resultado
+</button>
+
+<p>
+  Victorias: {{ victories }}
+</p>
