@@ -3,13 +3,11 @@ import { Pokemon } from '../../models/pokemon';
 import { Router } from '@angular/router';
 import { PokeapiService } from '../../services/pokeapi/pokeapi.service';
 import { forkJoin, Observable } from 'rxjs';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-choice-selector',
   standalone: true,
-  imports: [MatButtonModule, MatIconModule],
+  imports: [],
   templateUrl: './choice-selector.component.html',
   styleUrl: './choice-selector.component.css'
 })
