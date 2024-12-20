@@ -1,30 +1,28 @@
-<h4 class="text-center">Choose wisely</h4>
-<audio [src]="pokemon()?.cries?.latest" controls></audio>
+<div class="flex flex-col h-screen justify-center items-center">
+  <h4 class="text-center">Choose wisely</h4>
+  <audio class="mt-5" [src]="pokemon()?.cries?.latest" controls></audio>
 
-<fieldset class="checkbox-group">
-  @for (pokemon of pokemons(); track $index) {
-    <div class="checkbox">
-      <label class="checkbox-wrapper">
-        <input 
-          type="checkbox" 
-          class="checkbox-input" 
-          [checked]="selectedPokemon === pokemon.id"
-          (change)="onSelectPokemon(pokemon.id)" />
-        <span class="checkbox-tile">
-          <span class="checkbox-icon">
-            <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name">
+  <fieldset class="checkbox-group mt-5">
+    @for (pokemon of pokemons(); track $index) {
+      <div class="checkbox">
+        <label class="checkbox-wrapper">
+          <input 
+            type="checkbox" 
+            class="checkbox-input" 
+            [checked]="selectedPokemon === pokemon.id"
+            (change)="onSelectPokemon(pokemon.id)" />
+          <span class="checkbox-tile" [ngClass] = "{'no-choice': noChoice}">
+            <span class="checkbox-icon">
+              <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name">
+            </span>
+            <span class="checkbox-label">{{ pokemon.name }}</span>
           </span>
-          <span class="checkbox-label">{{ pokemon.name }}</span>
-        </span>
-      </label>
-    </div>
-  }
-</fieldset>
+        </label>
+      </div>
+    }
+  </fieldset>
 
-<button (click)="checkResult()">
-  Comprobar resultado
-</button>
-
-<p>
-  Victorias: {{ victories }}
-</p>
+  <button class="mt-5" (click)="checkResult()">
+    Submit
+  </button>
+</div>

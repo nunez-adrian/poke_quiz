@@ -2,5 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { 
+    height: 100%; 
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+button {
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    background: #2a75bb;
+    color: rgba(255,255,255,.95);
+    border-radius: 5px;
+    border: 1px solid #04477b;
+    box-shadow: 0 3px 0 #0e487b;
+    outline: none;
+    transition: 150ms ease-out;
+    cursor: pointer;
+    font-weight: bold;
+}
+  
+button:active {
+transform: translateY(3px);
+box-shadow: 0 0px 0 #1b6fb8;
+}

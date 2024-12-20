@@ -3,11 +3,12 @@ import { Pokemon } from '../../models/pokemon';
 import { Router } from '@angular/router';
 import { PokeapiService } from '../../services/pokeapi/pokeapi.service';
 import { forkJoin, Observable } from 'rxjs';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-choice-selector',
   standalone: true,
-  imports: [],
+  imports: [NgClass],
   templateUrl: './choice-selector.component.html',
   styleUrl: './choice-selector.component.css'
 })
@@ -24,10 +25,10 @@ export class ChoiceSelectorComponent implements OnInit{
   pokemon = signal<Pokemon | null>(null);
   pokemons = signal<Pokemon[]>([]);
   error = signal(false);
+  noChoice = false;
 
   // Almacena el pokemon seleccionado
   selectedPokemon: number | null = null;
-  victories = 0;
 
   readPokemons() {
     const randomIds = Array.from({ length: 4 }, () => this.getRandomNumber(1, 151));
@@ -67,16 +68,19 @@ export class ChoiceSelectorComponent implements OnInit{
 
   checkResult() {
     if (this.selectedPokemon === null) {
-      console.log('Ninguno seleccionado');
+      this.noChoice = true;
+
+      // Opcional: Eliminar el error automáticamente después de la animación
+      setTimeout(() => {
+        this.noChoice = false;
+      }, 400); // Duración igual a la animación en CSS
       return;
     }
 
     if (this.selectedPokemon === this.pokemon()?.id) {
-      this.victories++;
-      console.log('Correcto');
-      // this.router.navigate(['/result']);
+      this.router.navigate(['/victory'], { state: { victories: 1 } });
     } else {
-      console.log('Incorrecto');
+      // this.router.navigate(['/lose']);
     }
   }
 }
