@@ -88,7 +88,7 @@ export class ChoiceSelectorComponent implements OnInit{
     if (this.selectedPokemon === this.pokemon()?.id) {
       this.router.navigate(['/victory'], { state: { victories: 1 } });
     } else {
-      // this.router.navigate(['/lose']);
+      this.router.navigate(['/lose']);
     }
   }
 
