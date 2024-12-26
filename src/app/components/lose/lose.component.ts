@@ -1,23 +1,22 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { ScoreService } from '../../services/score/score.service';
 
 @Component({
   selector: 'app-lose',
+  standalone: true,
+  imports: [],
   templateUrl: './lose.component.html',
-  styleUrls: ['./lose.component.css']
+  styleUrl: './lose.component.css'
 })
-export class LoseComponent implements OnInit {
+export class LoseComponent {
 
   constructor(private router: Router) {}
 
   victories = inject(ScoreService);
 
-  ngOnInit() {
-    this.victories.resetScore$();
-  }
-
   goToChoiceSelector() {
+    this.victories.resetScore$();
     this.router.navigate(['/choice-selector']);
   }
 

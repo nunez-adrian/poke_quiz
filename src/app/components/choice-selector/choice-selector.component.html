@@ -1,8 +1,8 @@
 <div class="flex flex-col h-screen justify-center items-center">
-  <h4 class="text-center">Choose wisely</h4>
   <audio class="mt-5" [src]="pokemon()?.cries?.latest" controls></audio>
 
-  <fieldset class="checkbox-group mt-5">
+  <h4 class="text-2xl text-center mt-5">Choose wisely</h4>
+  <fieldset class="checkbox-group mt-1">
     @for (pokemon of pokemons(); track $index) {
       <div class="checkbox">
         <label class="checkbox-wrapper">

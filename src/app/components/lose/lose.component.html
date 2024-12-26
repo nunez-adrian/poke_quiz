@@ -1,3 +1,12 @@
-<p>
-  lose works!
-</p>
+<div class="flex flex-col h-screen justify-center items-center">
+  <img src="https://media1.tenor.com/m/jXFV2NJZl6AAAAAC/we-lost-squirtle-squad.gif" alt="two squirtles are standing next to each other with the words we lost written below them">
+  <h1 class="text-2xl text-center mt-5">Don't be sad! You scored <strong>{{victories.getScore$()}}</strong> victories. Wanna try again or prefer to share the results?</h1>
+  <div class="grid grid-cols-2 grid-rows-1 gap-4">
+      <button class="mt-5" (click)="goToChoiceSelector()">
+          Start again
+      </button>
+      <button class="mt-5">
+          Share results
+      </button>
+  </div>
+</div>
