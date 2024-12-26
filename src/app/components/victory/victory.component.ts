@@ -1,5 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ScoreService } from '../../services/score/score.service';
 
 @Component({
   selector: 'app-victory',
@@ -11,11 +12,11 @@ import { Router } from '@angular/router';
 export class VictoryComponent implements OnInit {
   constructor(private router: Router) {}
 
-  victories = 0;
+  victories = inject(ScoreService);
 
+  // Cada vez que dibujamos este componente, sumamos uno a la victoria
   ngOnInit() {
-    localStorage.setItem('victories', Number(localStorage.getItem('victories')) + this.router.lastSuccessfulNavigation?.extras.state?.['victories']);
-    this.victories = Number(localStorage.getItem('victories'));
+    this.victories.setScore$();
   }
 
   goToChoiceSelector() {
