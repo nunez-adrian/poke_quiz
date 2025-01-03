@@ -7,7 +7,7 @@ import { ScoreService } from '../../services/score/score.service';
   standalone: true,
   imports: [],
   templateUrl: './lose.component.html',
-  styleUrl: './lose.component.css'
+  styleUrl: './lose.component.scss'
 })
 export class LoseComponent {
 

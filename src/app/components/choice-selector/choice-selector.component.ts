@@ -10,7 +10,7 @@ import { NgClass } from '@angular/common';
   standalone: true,
   imports: [NgClass],
   templateUrl: './choice-selector.component.html',
-  styleUrl: './choice-selector.component.css'
+  styleUrl: './choice-selector.component.scss'
 })
 export class ChoiceSelectorComponent implements OnInit{
 

@@ -2,13 +2,14 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ScoreService } from '../../services/score/score.service';
 import confetti from 'canvas-confetti';
+import { ShareButtons } from 'ngx-sharebuttons/buttons';
 
 @Component({
   selector: 'app-victory',
   standalone: true,
-  imports: [],
+  imports: [ShareButtons],
   templateUrl: './victory.component.html',
-  styleUrl: './victory.component.css'
+  styleUrl: './victory.component.scss'
 })
 export class VictoryComponent implements OnInit {
   constructor(private router: Router) {}
