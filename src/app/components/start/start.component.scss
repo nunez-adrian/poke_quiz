@@ -6,7 +6,7 @@
     max-width: 200px;
 }
 
-@-webkit-keyframes rotating {
+@keyframes rotating {
     from{
         -webkit-transform: rotate(0deg);
     }
@@ -16,5 +16,5 @@
 }
 
 .rotation {
-    -webkit-animation: rotating 6s linear infinite;
+    animation: rotating 6s linear infinite;
 }
