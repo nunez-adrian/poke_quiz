@@ -1,0 +1,20 @@
+.pokeball {
+    max-width: 100px;
+}
+
+.pokequiz-logo {
+    max-width: 200px;
+}
+
+@-webkit-keyframes rotating {
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+    to{
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.rotation {
+    -webkit-animation: rotating 6s linear infinite;
+}

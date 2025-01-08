@@ -1,6 +1,9 @@
 <main>
   <div class="flex flex-col h-screen justify-center items-center">
-    <h1 class="text-3xl text-center">{{ title }} logo</h1>
+    <div class="flex justify-center items-center">
+      <img src="img/pokeball.webp" class="pokeball rotation" alt="pokeball logo">
+      <img src="img/pokequiz.webp" class="pokequiz-logo" alt="pokequiz logo">
+    </div>
     <button class="mt-5" (click)="goToChoiceSelector()">
       {{ victories > 0 ? 'Continue' : 'Start' }}
     </button>
