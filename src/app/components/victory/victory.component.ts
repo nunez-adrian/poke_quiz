@@ -23,7 +23,7 @@ export class VictoryComponent implements OnInit {
   }
 
   goToChoiceSelector() {
-    this.router.navigate(['/choice-selector']);
+    this.router.navigate(['/choice-selector'], { skipLocationChange: true });
   }
 
   celebrate() {

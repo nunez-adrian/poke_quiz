@@ -17,6 +17,8 @@ export class StartComponent {
   victories = Number(this.score.getScore$());
 
   goToChoiceSelector() {
-    this.router.navigate(['/choice-selector']);
+    this.router.navigate(['/choice-selector'], {
+      skipLocationChange: true
+    });
   }
 }
