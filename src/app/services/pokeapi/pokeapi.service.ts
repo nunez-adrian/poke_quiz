@@ -12,24 +12,7 @@ export class PokeapiService {
   private http = inject(HttpClient);
   private url = 'https://pokeapi.co/api/v2';
 
-  private pokemon$ = new Subject<Pokemon | null>();
-
-  // Este metodo es el que usaremos en el componente para suscribirnos al observable
-  getPokemon$() {
-    return this.pokemon$;
-  }
-
-
-  // Hacemos la peticion al endpoint de la pokeapi
-  readPokemon$(id: number):void {
-    this.http.get<Pokemon | null>(`${this.url}/pokemon/${id}`).subscribe({
-      next: pokemon => this.pokemon$.next(pokemon),
-      error: () => this.pokemon$.next(null),
-      complete: () => {}
-    });
-  }
-
-  // Para leer varios pokemon. Devolvemos de la respuesta solo los valores que queremos
+  // Para leer varios pokemon. Devolvemos de la respuesta solo los valores que tenemos definidos en la interfaz
   readPokemons$(id: number):Observable<Pokemon> {
     return this.http.get<any>(`https://pokeapi.co/api/v2/pokemon/${id}`).pipe(
       map(apiResponse => ({
